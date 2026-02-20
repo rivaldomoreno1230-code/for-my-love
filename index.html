@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>para mi pitufita</title>
+
+<style>
+body {
+    height: 100%;
+    margin: 0;
+
+    font-family: 'Georgia', serif;
+    text-align: center;
+    overflow: hidden;
+    color: #4a0033;
+
+    background: linear-gradient(135deg, #ff9ecf, #ffd6ec, #fff0f8);
+    background-size: 400% 400%;
+    animation: fondoAnimado 12s ease infinite;
+    background-attachment: fixed; /* evita parpadeos blancos */
+    background: #ffd6ec;
+}
+
+
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Secciones */
+.section {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    padding: 40px 20px;
+}
+
+.active {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+}
+
+/* Botones */
+button {
+    padding: 14px 28px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #ff45e9fc;
+    color: white;
+    margin-top: 30px;
+    transition: transform 0.3s ease;
+}
+button:hover { transform: scale(1.08); }
+
+/* Input */
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #fc4aff;
+}
+
+h1, h2, p {
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+img {
+    margin-top: 30px;
+    border-radius: 12px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* Corazones */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: rgba(255,105,180,0.6);
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity:1; }
+    100% { transform: translateY(-110vh) scale(1.5); opacity:0; }
+}
+
+/* Collage */
+.collage {
+    position: absolute;
+    width: 100%;
+}
+
+.texto-central {
+    position: relative;
+    z-index: 5;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    color: #4a0033;
+}
+
+.corner {
+    position: absolute;
+    width: 140px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease;
+}
+
+.top-left { top: 5%; left: 5%; transform: rotate(-8deg); }
+.top-right { top: 5%; right: 5%; transform: rotate(6deg); }
+.middle-left { top: 40%; left: 2%; transform: rotate(10deg); }
+.middle-right { top: 40%; right: 2%; transform: rotate(-10deg); }
+.bottom-left { bottom: 5%; left: 15%; transform: rotate(-6deg); }
+.bottom-right { bottom: 5%; right: 15%; transform: rotate(8deg); }
+
+.marco-final{
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    margin: auto;
+    padding: 80px 40px;
+    min-height: 100vh;
+}
+
+.texto-central {
+    position: relative;
+    z-index: 5;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    color: #4a0033;
+    margin-top: 270px; /* 👈 esto lo baja un poco */
+}
+
+/* Fotos */
+.foto{
+    position: absolute;
+    width: 140px;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    transition: transform .4s ease;
+}
+
+.foto:hover{
+    transform: scale(1.05);
+}
+
+/* Esquinas */
+.esquina1{ 
+    top: 15%; 
+    left: 5%; 
+    transform: rotate(-8deg); 
+}
+
+.esquina2{ 
+    top: 15%; 
+    right: 5%; 
+    transform: rotate(8deg); 
+}
+
+.esquina3{ 
+    bottom: 15%; 
+    left: 8%; 
+    transform: rotate(6deg); 
+}
+
+.esquina4{ 
+    bottom: 15%; 
+    right: 8%; 
+    transform: rotate(-6deg); 
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music1" loop>
+    <source src="The Neighbourhood - Sweater Weather (Lyrics).mp3" type="audio/mpeg">
+</audio>
+
+<audio id="music2" loop>
+    <source src="Goo Goo Dolls – Iris Official Music Video 4K Remaster.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SECCIONES -->
+
+<div class="section active" id="s1">
+    <button onclick="startExperience()">helou, mi pitufita</button>
+</div>
+
+<div class="section" id="s2">
+    <h1>te hice esto con todo el cariño y el amor que te mereces</h1>
+    <p> bueno amor, llevamos más de un año hablando.
+        Más de un año construyendo algo que no nació de la prisa,
+        sino de la conexión.
+    Y aunque lo hicimos oficial el 21 de enero,
+        yo ya te estaba eligiendo desde antes.</p>
+    <button onclick="nextSection(3)">Siguiente</button>
+</div>
+
+<div class="section" id="s3">
+    <h2>primero el checking pendeja</h2>
+    <input type="text" id="fecha" placeholder="21/01">
+    <br>
+    <button onclick="verificarFecha()">Confirmar</button>
+</div>
+
+<div class="section" id="s4">
+    <h1>quiero desearte un feliz cumpleaños mi corazón de melón</h1>
+    <p>ojalá hoy pudiera abrazarte en lugar de escribirte esto, pero aun así quiero que sientas lo cerca que estás de mí. La distancia no cambia lo que siento, solo me recuerda cada día lo importante que eres y las ganas que tengo de volver a coincidir contigo en el mismo lugar.
+
+Gracias por seguir construyendo esto conmigo, incluso cuando no es fácil. Gracias por tu paciencia, por tu cariño y por hacer que, aun lejos, me sienta acompañado. Tenerte en mi vida es de las cosas más bonitas que me han pasado.
+
+Ojalá este nuevo año te regale momentos felices, tranquilidad y sueños cumplidos. Y ojalá pronto podamos celebrar juntos, sin pantallas de por medio, como se merece alguien tan especial como tú. gracias por ser quien eres y como eres, te amo con mi vida deyalith.</p>
+    <button onclick="nextSection(5)">Hay algo más…</button>
+</div>
+
+<div class="section" id="s5">
+    <h1>hoy ya un mes siendo novios ehhh</h1>
+    <p>Puede parecer poco.
+       Pero siendo sincero para mí significa mucho
+       Porque no es solo un mes.
+        Es la confirmación de algo que llevábamos construyendo hace tiempo.
+        Es dar un paso contigo.
+        Es elegirte de forma clara
+      Y quiero seguir eligiéndote.</p>
+    <button onclick="finalSection()">Última cosa</button>
+</div>
+
+<div class="section" id="s6">
+    <div class="marco-final">
+
+    <img src="iris.jpg" class="foto esquina1">
+    <img src="ella2.jpeg" class="foto esquina2">
+    <img src="ella3.jpeg" class="foto esquina3">
+    <img src="ella4.jpeg" class="foto esquina4">
+
+    <div class="texto-central">
+        <h1>te amo muchisimo ♡</h1>
+        <p>la distancia no reduce lo que siento.
+        No cambia lo que significas para mi.
+        No cambia porque la distancia es nada cuando tu lo eres todo</p>
+
+        <p>No sé cuánto nos tocará esperar,
+        pero sí sé que vale la pena.
+        Porque lo que tenemos no es casualidad.</p>
+
+        <p>Y si volviera al inicio,
+        volvería a hablar contigo.
+        volvería a elegirte
+        y volveria amarte.</p>
+    </div>
+
+</div>
+
+    
+<script>
+function nextSection(num) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    setTimeout(() => {
+        document.getElementById('s' + num).classList.add('active');
+    }, 200);
+}
+
+function verificarFecha() {
+    const fecha = document.getElementById('fecha').value.trim();
+    if (fecha === "21/01") nextSection(4);
+    else alert("jummm tontita");
+}
+
+function startExperience() {
+    const music1 = document.getElementById("music1");
+    const music2 = document.getElementById("music2");
+
+    music2.pause();
+    music2.currentTime = 0;
+    music1.play().catch(() => console.log("Reproducción bloqueada"));
+
+    nextSection(2);
+}
+
+function finalSection() {
+    const music1 = document.getElementById("music1");
+    const music2 = document.getElementById("music2");
+
+    music1.pause();
+    music1.currentTime = 0;
+    music2.play().catch(() => console.log("Reproducción bloqueada"));
+
+    nextSection(6);
+}
+
+/* Corazones */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "♡";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
