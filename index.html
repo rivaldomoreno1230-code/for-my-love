@@ -11,7 +11,8 @@ body {
 
     font-family: 'Georgia', serif;
     text-align: center;
-    overflow: hidden;
+   overflow-x: hidden;
+   overflow-y: auto;
     color: #4a0033;
 
     background: linear-gradient(135deg, #ff9ecf, #ffd6ec, #fff0f8);
@@ -105,14 +106,6 @@ img {
     width: 100%;
 }
 
-.texto-central {
-    position: relative;
-    z-index: 5;
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    color: #4a0033;
-}
 
 .corner {
     position: absolute;
@@ -131,10 +124,10 @@ img {
 
 .marco-final{
     position: relative;
-    width: 80%;
-    max-width: 900px;
-    margin: auto;
-    padding: 80px 40px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 140px 20px 200px 20px;
     min-height: 100vh;
 }
 
@@ -162,28 +155,43 @@ img {
 }
 
 /* Esquinas */
+.foto{
+    position: absolute;
+    width: 110px;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* ARRIBA */
 .esquina1{ 
-    top: 15%; 
-    left: 5%; 
-    transform: rotate(-8deg); 
+    top: 0; 
+    left: 10px; 
+    transform: rotate(-10deg); 
 }
 
 .esquina2{ 
-    top: 15%; 
-    right: 5%; 
+    top: 0; 
+    right: 10px; 
+    transform: rotate(10deg); 
+}
+
+/* ABAJO */
+.esquina3{ 
+    bottom: 0; 
+    left: 20px; 
     transform: rotate(8deg); 
 }
 
-.esquina3{ 
-    bottom: 15%; 
-    left: 8%; 
-    transform: rotate(6deg); 
-}
-
 .esquina4{ 
-    bottom: 15%; 
-    right: 8%; 
-    transform: rotate(-6deg); 
+    bottom: 0; 
+    right: 20px; 
+    transform: rotate(-8deg); 
+}
+.section#s6 {
+    position: relative;
+    transform: none;
+    top: auto;
+    left: auto;
 }
 </style>
 </head>
